@@ -13,19 +13,20 @@ def is_admin(user_id: int) -> bool:
 
 def get_main_keyboard():
     auto_text = "🔄 Auto-Block: ON" if blocklist_manager.auto_block_enabled else "🔄 Auto-Block: OFF"
+    auto_style = enums.ButtonStyle.SUCCESS if blocklist_manager.auto_block_enabled else enums.ButtonStyle.SECONDARY
 
     return InlineKeyboardMarkup([
         [
-            InlineKeyboardButton("Block IP", callback_data="btn_block"),
-            InlineKeyboardButton("Unblock IP", callback_data="btn_unblock")
+            InlineKeyboardButton("Block IP", callback_data="btn_block", style=enums.ButtonStyle.DANGER),
+            InlineKeyboardButton("Unblock IP", callback_data="btn_unblock", style=enums.ButtonStyle.SUCCESS)
         ],
         [
-            InlineKeyboardButton("View Blocklist", callback_data="btn_view"),
-            InlineKeyboardButton(auto_text, callback_data="btn_toggle_auto")
+            InlineKeyboardButton("View Blocklist", callback_data="btn_view", style=enums.ButtonStyle.PRIMARY),
+            InlineKeyboardButton(auto_text, callback_data="btn_toggle_auto", style=auto_style)
         ],
         [
-            InlineKeyboardButton("📈 Server Status", callback_data="btn_status"),
-            InlineKeyboardButton("🧹 Flush All", callback_data="btn_flush")
+            InlineKeyboardButton("📈 Server Status", callback_data="btn_status", style=enums.ButtonStyle.PRIMARY),
+            InlineKeyboardButton("🧹 Flush All", callback_data="btn_flush", style=enums.ButtonStyle.DANGER)
         ]
     ])
 

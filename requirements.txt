@@ -1,6 +1,6 @@
 fastapi
 uvicorn
 slowapi
-pyrogram
+Kurigram
 psutil
 pydantic-settings
