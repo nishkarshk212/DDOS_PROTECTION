@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+slowapi
+pyrogram
+psutil
+pydantic-settings
